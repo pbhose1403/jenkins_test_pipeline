@@ -4,7 +4,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo "Checkout.."
+                script {
+                    git branch: 'main',
+                        credentialsId: 'jenkins-user-github',
+                        url: 'https://github.com/pbhose1403/AppConnect-Dummy-flow.git'
+                }
             }
         }
         stage('Build') {
